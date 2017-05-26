@@ -1,18 +1,23 @@
+# Makefile to compile Darts code
+# If running on Magnus, use Cray compiler wrapper cc/ftn instead of directly using Intel compilers.
+# Notice the Flags and Libraries requested. The current ones are for Intel compilation so consider swapping to PrgEnv-intel if compiling on Magnus.
+
+# Compiler definition
 CC = icc
 F90 = ifort
-MPICC = cc
-MPIF90 =ftn 
+MPICC = mpicc
+MPIF90 = mpif90 
 
-OMP_FLAGS = -openmp 
-OPT_FLAGS = -g
+OMP_FLAGS = -openmp 	# OpenMP flag for Intel compiler.  
+OPT_FLAGS = -g 		# Debugging enabled if using -g.  
 # from http://software.intel.com/sites/products/mkl/MKL_Link_Line_Advisor.html
 MKL_FLAGS = -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lpthread -lm
 MKL_OMP_FLAGS =  -Wl,--start-group  $(MKLROOT)/lib/intel64/libmkl_intel_ilp64.a $(MKLROOT)/lib/intel64/libmkl_intel_thread.a $(MKLROOT)/lib/intel64/libmkl_core.a -Wl,--end-group -lpthread -lm
 MKL_INCL = -DMKL_ILP64 -I$(MKLROOT)/include
 
-OBJS = darts darts-mpi darts-collective darts-omp darts-hybrid darts-mpi-mkl darts-hybrid-mkl
+PROGS = darts darts-mpi darts-collective darts-omp darts-hybrid darts-mpi-mkl darts-hybrid-mkl
 
-all: ${OBJS}
+all: ${PROGS}
 
 darts: darts.o lcgenerator.h
 	${CC} ${OPT_FLAGS} -o darts darts.o
@@ -54,4 +59,4 @@ darts-hybrid-mkl.o: darts-hybrid-mkl.c
 	${MPICC} ${OPT_FLAGS} ${OMP_FLAGS} ${MKL_INCL} -c darts-hybrid-mkl.c 
 
 clean:
-	rm -rf *.o ${OBJS}
+	rm -rf *.o ${PROGS}
