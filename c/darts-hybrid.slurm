@@ -12,5 +12,6 @@
 #SBATCH --export=NONE
 
 module swap PrgEnv-cray PrgEnv-intel 
-
-aprun -n 24 -N 24 darts-hybrid
+# The following will launch darts-hybrid 4 MPI-tasks, each creating 6 OpenMP threads
+export OMP_NUM_THREADS=6
+aprun -n 4 -N 4 -d 6 darts-hybrid
