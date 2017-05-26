@@ -1,8 +1,8 @@
 #!/bin/bash -l
 
-## SLURM job-script to run the serial version of darts program.
+## SLURM job-script to run the hybrid "MPI+OpenMP" version of darts program.
 
-#SBATCH --job-name=darts-openmp
+#SBATCH --job-name=darts-mpi
 #SBATCH --account=courses01
 #SBATCH --reservation=courseq
 #SBATCH --nodes=1
@@ -11,5 +11,4 @@
 
 module swap PrgEnv-cray PrgEnv-intel 
 
-export OMP_NUM_THREADS=24
-aprun -n 1 -N 1 -d 24 darts-omp
+aprun -n 24 -N 24 darts-hybrid

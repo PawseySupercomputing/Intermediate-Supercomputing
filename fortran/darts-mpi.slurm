@@ -2,8 +2,7 @@
 
 ## SLURM job-script to run the mpi version of darts program.
 ## Use this script to test the mpi-collectives version by changing the 
-## filename from darts-mpi to darts-collective. Do the same if you want to 
-## try the darts-mpi-mkl linked to Intel MKL library.
+## filename from darts-mpi to darts-collective
 
 #SBATCH --job-name=darts-mpi
 #SBATCH --account=courses01
