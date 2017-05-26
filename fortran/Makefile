@@ -1,14 +1,19 @@
+# Makefile to compile Darts code
+# If running on Magnus, use Cray compiler wrapper cc/ftn instead of directly using Intel compilers.
+# Notice the Flags and Libraries requested. The current ones are for Intel compilation so consider swapping to PrgEnv-intel if compiling on Magnus.
+
+# Compiler definition
 CC = icc
 F90 = ifort
 MPICC = mpicc
-MPIF90 = mpif90
+MPIF90 = mpif90 
 
-OMP_FLAGS = -openmp
-OPT_FLAGS = -g
+OMP_FLAGS = -openmp 	# OpenMP flag for Intel compiler.  
+OPT_FLAGS = -g 		# Debugging enabled if using -g.  
 
-OBJS = darts darts-mpi darts-collective darts-omp darts-hybrid 
+PROGS = darts darts-mpi darts-collective darts-omp darts-hybrid 
 
-all: ${OBJS}
+all: ${PROGS}
 
 darts: darts.o
 	${F90} ${OPT_FLAGS} -o darts darts.o
@@ -44,4 +49,4 @@ darts-hybrid.o: lcgenerator.f darts-hybrid.f
 	${MPIF90} ${OPT_FLAGS} -c darts-hybrid.f
 
 clean:
-	rm -rf *.o *.mod ${OBJS}
+	rm -rf *.o *.mod ${PROGS}
