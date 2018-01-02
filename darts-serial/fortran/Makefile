@@ -7,13 +7,13 @@ F90 = ifort
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g
-OPT_FLAGS = -O2 -g
+FFLAGS = -O2 -g
 
 darts: darts.o
-	${F90} ${OPT_FLAGS} -o darts darts.o
+	${F90} ${FFLAGS} -o darts darts.o
 
 %.o: %.f
-	${F90} ${OPT_FLAGS} -c $< -o $@
+	${F90} ${FFLAGS} -c $< -o $@
 
 clean:
 	rm -rf *.o *.mod darts

@@ -7,16 +7,16 @@ CC = icc
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g
-OPT_FLAGS = -O2 -g
+CFLAGS = -O2 -g
 
 # Default target  
 all: darts
 
 darts: darts.o 
-	${CC} ${OPT_FLAGS} -o darts darts.o
+	${CC} ${CFLAGS} -o darts darts.o
 
 %.o: %.c lcgenerator.h
-	$(CC) $(OPT_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf *.o darts
