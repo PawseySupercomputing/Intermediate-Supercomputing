@@ -19,7 +19,7 @@ darts-omp: darts-omp.o
 	${CC} ${CFLAGS} -o darts-omp darts-omp.o
 
 %.o: %.c lcgenerator.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 	rm -rf *.o darts-omp

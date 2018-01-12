@@ -16,7 +16,7 @@ darts-mpi: darts-mpi.o
 	${MPICC} ${CFLAGS} -o darts-mpi darts-mpi.o
 
 %.o: %.c lcgenerator.h
-	$(MPICC) $(CFLAGS) -c $< -o $@
+	${MPICC} ${CFLAGS} -c $< -o $@
 
 clean:
 	rm -rf *.o darts-mpi

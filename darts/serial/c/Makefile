@@ -16,7 +16,7 @@ darts: darts.o
 	${CC} ${CFLAGS} -o darts darts.o
 
 %.o: %.c lcgenerator.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 	rm -rf *.o darts
