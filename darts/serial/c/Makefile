@@ -1,9 +1,9 @@
 # Makefile to compile Darts serial C code
-# If running on Magnus, use Cray compiler wrapper cc/ftn instead of directly using Intel compilers.
-# Notice the Flags and Libraries requested. The current ones are for Intel compilation so consider swapping to PrgEnv-intel if compiling on Magnus.
 
 # Compiler definition
-CC = icc
+# If running on Cray use compiler wrapper cc instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
+# On other systems use: gcc (for GNU), icc (for Intel), pgcc (PGI)
+CC = cc
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g

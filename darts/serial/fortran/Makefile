@@ -1,9 +1,9 @@
-# Makefile to compile Darts code
-# If running on Magnus, use Cray compiler wrapper cc/ftn instead of directly using Intel compilers.
-# Notice the Flags and Libraries requested. The current ones are for Intel compilation so consider swapping to PrgEnv-intel if compiling on Magnus.
+# Makefile to compile Darts Fortran code
 
 # Compiler definition
-F90 = ifort
+# If running on Cray use compiler wrapper ftn instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
+# On other systems use: gfortran (for GNU), ifort (for Intel), pgf90 (PGI)
+F90 = ftn
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g
