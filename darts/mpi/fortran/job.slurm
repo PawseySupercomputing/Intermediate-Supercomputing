@@ -13,4 +13,4 @@
 
 module swap PrgEnv-cray PrgEnv-intel 
 
-aprun -n 24 -N 24 darts-mpi
+srun --export=ALL -n 24 darts-mpi

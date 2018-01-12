@@ -2,14 +2,13 @@
 
 ## SLURM job-script to run the serial version of darts program.
 
-#SBATCH --job-name=darts-openmp
+#SBATCH --job-name=darts-serial
 #SBATCH --account=courses01
 #SBATCH --reservation=courseq
 #SBATCH --nodes=1
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
-module swap PrgEnv-cray PrgEnv-intel 
+module load python
 
-export OMP_NUM_THREADS=24
-srun --export=ALL -n 1 -c 24 darts-omp
+srun --export=ALL -n 1 python ./darts.py

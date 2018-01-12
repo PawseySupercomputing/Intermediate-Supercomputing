@@ -12,4 +12,4 @@
 module swap PrgEnv-cray PrgEnv-intel 
 
 export OMP_NUM_THREADS=24
-aprun -n 1 -N 1 -d 24 darts-omp
+srun --export=ALL  -n 1 -c 24 darts-omp

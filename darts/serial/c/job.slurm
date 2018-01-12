@@ -11,4 +11,4 @@
 
 module swap PrgEnv-cray PrgEnv-intel 
 
-aprun -n 1 -N 1 darts
+srun --export=ALL -n 1 ./darts

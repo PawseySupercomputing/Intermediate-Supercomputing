@@ -13,13 +13,13 @@ CC = cc
 CFLAGS = -O2 -g -qopenmp
 
 # Default target  
-all: darts
+all: darts-omp
 
-darts: darts.o 
-	${CC} ${CFLAGS} -o darts darts.o
+darts-omp: darts-omp.o 
+	${CC} ${CFLAGS} -o darts-omp darts-omp.o
 
 %.o: %.c lcgenerator.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf *.o darts
+	rm -rf *.o darts-omp

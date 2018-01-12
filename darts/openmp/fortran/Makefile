@@ -12,11 +12,11 @@ F90 = ftn
 # OpenMP is enabled by default for Cray compiler.
 FFLAGS = -O2 -g -qopenmp
 
-darts: darts.o
-	${F90} ${FFLAGS} -o darts darts.o
+darts-omp: darts-omp.o
+	${F90} ${FFLAGS} -o darts-omp darts-omp.o
 
 %.o: %.f
 	${F90} ${FFLAGS} -c $< -o $@
 
 clean:
-	rm -rf *.o *.mod darts
+	rm -rf *.o *.mod darts-omp
