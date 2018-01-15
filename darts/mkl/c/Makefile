@@ -1,4 +1,4 @@
-# Makefile to compile Darts serial C code
+# Makefile to compile Darts serial C code using the MKL library
 
 # Compiler definition
 # If running on Cray use compiler wrapper cc instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
