@@ -9,7 +9,7 @@ MPIF90 = ftn
 # Debugging enabled if using -g
 FFLAGS = -O2 -g
 
-darts-mpi: darts-mpi.o
+darts-mpi: lcgenerator.o darts-mpi.o
 	${MPIF90} ${FFLAGS} -o darts-mpi darts-mpi.o
 
 %.o: %.f

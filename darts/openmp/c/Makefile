@@ -1,4 +1,4 @@
-# Makefile to compile Darts serial C OpenMP code
+# Makefile to compile Darts C OpenMP code
 
 # Compiler definition
 # If running on Cray use compiler wrapper cc instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.

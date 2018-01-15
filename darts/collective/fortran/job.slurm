@@ -1,10 +1,8 @@
 #!/bin/bash -l
 
-## SLURM job-script to run the mpi version of darts program.
-## Use this script to test the mpi-collectives version by changing the 
-## filename from darts-mpi to darts-collective
+## SLURM job-script to run the MPI collective version of darts program.
 
-#SBATCH --job-name=darts-mpi
+#SBATCH --job-name=darts-collective
 #SBATCH --account=courses01
 #SBATCH --reservation=courseq
 #SBATCH --nodes=1
@@ -13,4 +11,4 @@
 
 module swap PrgEnv-cray PrgEnv-intel 
 
-aprun -n 24 -N 24 darts-mpi
+srun --export=ALL -n 24 darts-collective

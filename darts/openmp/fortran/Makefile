@@ -1,4 +1,4 @@
-# Makefile to compile Darts Fortran code
+# Makefile to compile Darts Fortran OpenMP code
 
 # Compiler definition
 # If running on Cray use compiler wrapper ftn instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.

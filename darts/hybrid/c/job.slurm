@@ -4,7 +4,7 @@
 ## Use this script to test the hybrid version linked with MKL libraries by changing the 
 ## filename from darts-mpi to darts-hybrid-mkl
 
-#SBATCH --job-name=darts-mpi
+#SBATCH --job-name=darts-hybrid
 #SBATCH --account=courses01
 #SBATCH --reservation=courseq
 #SBATCH --nodes=1
@@ -14,4 +14,4 @@
 module swap PrgEnv-cray PrgEnv-intel 
 # The following will launch darts-hybrid 4 MPI-tasks, each creating 6 OpenMP threads
 export OMP_NUM_THREADS=6
-aprun -n 4 -N 4 -d 6 darts-hybrid
+srun --export=ALL -n 4 -c 6 --cpu_bind=sockets darts-hybrid
