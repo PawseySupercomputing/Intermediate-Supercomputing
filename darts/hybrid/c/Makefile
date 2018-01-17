@@ -15,7 +15,7 @@ CFLAGS = -O2 -g -qopenmp
 # Default target  
 all: darts-hybrid
 
-darts-omp: darts-hybrid.o 
+darts-hybrid: darts-hybrid.o 
 	${MPICC} ${CFLAGS} -o darts-hybrid darts-hybrid.o
 
 %.o: %.c lcgenerator.h
