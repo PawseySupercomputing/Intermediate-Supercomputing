@@ -7,7 +7,7 @@ CC = cc
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g
-CFLAGS = -O2 -g
+CFLAGS = -O2 -g -mkl=sequential
 
 # Setup include directory and libraries for MKL. Use the Intel MKL Link Line Advisor
 MKL_LIBS=-Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -lpthread -lm

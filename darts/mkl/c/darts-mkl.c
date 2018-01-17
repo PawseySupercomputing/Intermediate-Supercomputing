@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
   VSLStreamStatePtr stream;
 
-  vslNewStream(&stream, VSL_BRNG_MT2203+rank, 1);
+  vslNewStream(&stream, VSL_BRNG_MT2203, 1);
 
   for (i = 0; i < num_trials; i++) {
     vdRngUniform(VSL_RNG_METHOD_UNIFORMBITS_STD, stream, 2, xy, 0.0, 1.0);
