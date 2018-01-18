@@ -1,4 +1,4 @@
-# Makefile to compile Darts MPI+OpenMP hybrid C code
+# Makefile to compile xthi code
 
 # Compiler definition
 # If running on Cray use compiler wrapper cc instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
@@ -13,13 +13,13 @@ MPICC = cc
 CFLAGS = -O2 -g -qopenmp
 
 # Default target  
-all: darts-hybrid
+all: xthi
 
-darts-hybrid: darts-hybrid.o 
-	${MPICC} ${CFLAGS} -o darts-hybrid darts-hybrid.o
+xthi: xthi.o 
+	${MPICC} ${CFLAGS} -o xthi xthi.o
 
-%.o: %.c lcgenerator.h
+%.o: %.c
 	${MPICC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -rf *.o darts-hybrid
+	rm -f *.o xthi
