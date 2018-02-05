@@ -4,7 +4,6 @@
 
 #SBATCH --job-name=num-osts-demo
 #SBATCH --account=courses01
-#SBATCH --reservation=courseq
 #SBATCH --nodes=1
 #SBATCH --time=00:10:00
 #SBATCH --export=NONE
@@ -19,4 +18,4 @@ cd ${MYSCRATCH}
 export EXAMPLES_DIR=${HOME}/IntermediateSupercomputing
 
 # run the Python script
-srun --export=ALL -n 1 python ${EXAMPLES_DIR}/lustre/num_osts_demo.py 
+srun --export=all -n 1 python ${EXAMPLES_DIR}/lustre/num_osts_demo.py 

@@ -10,7 +10,7 @@ MPIF90 = ftn
 FFLAGS = -O2 -g
 
 darts-collective: lcgenerator.o darts-collective.o
-	${MPIF90} ${FFLAGS} -o darts-collective darts-collective.o
+	${MPIF90} ${FFLAGS} -o darts-collective darts-collective.o lcgenerator.o
 
 %.o: %.f
 	${MPIF90} ${FFLAGS} -c $< -o $@

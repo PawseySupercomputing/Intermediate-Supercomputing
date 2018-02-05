@@ -13,7 +13,7 @@ MPIF90 = ftn
 FFLAGS = -O2 -g -qopenmp
 
 darts-hybrid: lcgenerator.o darts-hybrid.o
-	${MPIF90} ${FFLAGS} -o darts-hybrid darts-hybrid.o
+	${MPIF90} ${FFLAGS} -o darts-hybrid darts-hybrid.o lcgenerator.o
 
 %.o: %.f
 	${MPIF90} ${FFLAGS} -c $< -o $@

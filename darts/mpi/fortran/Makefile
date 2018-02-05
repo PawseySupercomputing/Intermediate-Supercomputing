@@ -1,4 +1,4 @@
-# Makefile to compile Darts Fortran code
+# Makefile to compile Darts Fortran MPI code
 
 # Compiler definition
 # If running on Cray use compiler wrapper ftn instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
@@ -10,7 +10,7 @@ MPIF90 = ftn
 FFLAGS = -O2 -g
 
 darts-mpi: lcgenerator.o darts-mpi.o
-	${MPIF90} ${FFLAGS} -o darts-mpi darts-mpi.o
+	${MPIF90} ${FFLAGS} -o darts-mpi darts-mpi.o lcgenerator.o
 
 %.o: %.f
 	${MPIF90} ${FFLAGS} -c $< -o $@

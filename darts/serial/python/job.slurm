@@ -4,11 +4,10 @@
 
 #SBATCH --job-name=darts-serial
 #SBATCH --account=courses01
-#SBATCH --reservation=courseq
 #SBATCH --nodes=1
 #SBATCH --time=00:05:00
 #SBATCH --export=NONE
 
 module load python
 
-srun --export=ALL -n 1 python ./darts.py
+srun --export=all -n 1 python ./darts.py

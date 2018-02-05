@@ -1,4 +1,4 @@
-# Makefile to compile xthi code
+# Makefile to compile Darts MPI code with parameters
 
 # Compiler definition
 # If running on Cray use compiler wrapper cc instead of directly using Intel/GNU/PGI compiler. Consider swapping to an appropriate PrgEnv- module.
@@ -7,19 +7,16 @@ MPICC = cc
 
 # Optimisation level set to -O2
 # Debugging enabled if using -g
-# Notice that OpenMP flag differs for different compiler families
-# Use: -fopenmp (for GNU), -qopenmp (for Intel), -mp (for PGI)
-# OpenMP is enabled by default for Cray compiler.
-CFLAGS = -O2 -g 
+CFLAGS = -O2 -g
 
 # Default target  
-all: xthi
+all: darts-mpi
 
-xthi: xthi.o 
-	${MPICC} ${CFLAGS} -o xthi xthi.o
+darts-mpi: darts-mpi.o 
+	${MPICC} ${CFLAGS} -o darts-mpi darts-mpi.o
 
-%.o: %.c
+%.o: %.c lcgenerator.h
 	${MPICC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -f *.o xthi
+	rm -rf *.o darts-mpi
