@@ -47,7 +47,7 @@ for N in num_osts:
   # Let's time how long it takes to generate this file in each of our striped directories. 
 
     test_file = os.getcwd() + "/" + dirname + "/test.dat" 
-    command_str = "time dd if=/dev/zero of=" + test_file + " count=18k bs=1M"
+    command_str = "time dd if=/dev/zero of=" + test_file + " count=8k bs=1M"
     os.system( command_str )
 
   # We finish by deleting the test directory
