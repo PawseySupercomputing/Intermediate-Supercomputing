@@ -15,7 +15,7 @@ module load python
 cd ${MYSCRATCH}
 
 # setup environment variable pointing to training examples directory
-export EXAMPLES_DIR=${HOME}/Intermediate-Supercomputing
+export EXAMPLES_DIR=${MYGROUP}/Intermediate-Supercomputing
 
 # run the Python script
 srun --export=all -n 1 python ${EXAMPLES_DIR}/lustre/num_osts_demo.py 
